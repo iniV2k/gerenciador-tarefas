@@ -7,7 +7,6 @@ public class Tarefa {
 	private String status;
 	
 	public Tarefa(int id, String titulo, String status) {
-		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.status = status;
