@@ -61,7 +61,7 @@ public class Program {
 				//
 				break;
 			default:
-				//
+				System.out.println("Opção inválida");
 				break;
 			}
 			
