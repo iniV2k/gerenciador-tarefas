@@ -27,10 +27,11 @@ public class Program {
 			System.out.print("Escolha uma opção: ");
 			
 			int opcao = sc.nextInt();
+			sc.nextLine();
 			
 			switch (opcao) {
 			case 1:
-				System.out.println("Digite o título da tarefa: ");
+				System.out.print("Digite o título da tarefa: ");
 				String titulo = sc.nextLine();
 				tarefas.add(new Tarefa(id++, titulo, "Pendente"));
 				System.out.println("Tarefa adicionada com sucesso!");
