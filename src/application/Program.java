@@ -43,13 +43,11 @@ public class Program {
 				gerenciador.addTarefa(sc.nextLine());
 				break;
 			case 2:
-				gerenciador.mostrarTarefas();
+				gerenciador.listarTarefas();
 				break;
 			case 3:
 				System.out.print("\nDigite o ID da tarefa: ");
-				idTarefa = sc.nextInt() - 1;
-				tarefas.get(idTarefa).setStatus("concluída");
-				System.out.println("\nTarefa '" + tarefas.get(idTarefa).getTitulo() + "' marcada como concluída!\n");
+				gerenciador.concluirTarefa(sc.nextInt() - 1);
 				break;
 			case 4:
 				System.out.print("\nDigite o ID da tarefa: ");
