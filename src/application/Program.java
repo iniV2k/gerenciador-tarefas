@@ -14,8 +14,10 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		boolean rodando = true;
 		List<Tarefa> tarefas = new ArrayList<>();
+		int id = 1;
 		
 		while (rodando) {
+			
 			System.out.println("=== Gerenciador de Tarefas ===");
 			System.out.println("1. Adicionar Tarefa");
 			System.out.println("2. Listas Tarefa");
@@ -28,7 +30,10 @@ public class Program {
 			
 			switch (opcao) {
 			case 1:
-				//
+				System.out.println("Digite o título da tarefa: ");
+				String titulo = sc.nextLine();
+				tarefas.add(new Tarefa(id++, titulo, "Pendente"));
+				System.out.println("Tarefa adicionada com sucesso!");
 				break;
 			case 2:
 				//
