@@ -35,6 +35,7 @@ public class Program {
 				break;
 			}
 			
+			int idTarefa;
 			switch (opcao) {
 			case 1:
 				System.out.print("\nDigite o título da tarefa: ");
@@ -56,16 +57,20 @@ public class Program {
 				}
 				break;
 			case 3:
-				System.out.print("Digite o ID da tarefa: ");
-				int idTarefa = sc.nextInt() - 1;
+				System.out.print("\nDigite o ID da tarefa: ");
+				idTarefa = sc.nextInt() - 1;
 				tarefas.get(idTarefa).setStatus("concluída");
 				System.out.println("\nTarefa '" + tarefas.get(idTarefa).getTitulo() + "' marcada como concluída!\n");
 				break;
 			case 4:
-				//
+				System.out.print("\nDigite o ID da tarefa: ");
+				idTarefa = sc.nextInt() - 1;
+				String tituloTarefa = tarefas.get(idTarefa).getTitulo();
+				tarefas.removeIf(t -> t.getId() - 1 == idTarefa);
+				System.out.println("\nTarefa '" + tituloTarefa + "' excluída com sucesso!\n");
 				break;
 			case 5:
-				//
+				System.out.println("Gerenciador de tarefas finalizado!");
 				break;
 			default:
 				System.out.println("\nOpção inválida\n");
