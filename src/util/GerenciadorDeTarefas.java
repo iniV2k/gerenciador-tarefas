@@ -20,5 +20,13 @@ public class GerenciadorDeTarefas {
 		System.out.println("Tarefa '" + titulo + "' adicionada com sucesso!");
 	}
 	
-	
+	public void mostrarTarefas() {
+		System.out.println();
+		if (tarefas.isEmpty()) {
+			System.out.println("Não há nenhuma tarefa listada.");
+			return;
+		} else {
+			tarefas.forEach(System.out::println);
+		}
+	}
 }

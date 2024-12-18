@@ -16,7 +16,6 @@ public class Program {
 		boolean rodando = true;
 		List<Tarefa> tarefas = new ArrayList<>();
 		GerenciadorDeTarefas gerenciador = new GerenciadorDeTarefas();
-		int id = 1;
 		
 		while (rodando) {
 			
@@ -44,13 +43,7 @@ public class Program {
 				gerenciador.addTarefa(sc.nextLine());
 				break;
 			case 2:
-				if (!tarefas.isEmpty()) {
-					System.out.println();
-					tarefas.forEach(System.out::println);
-					System.out.println();
-				} else {
-					System.out.println("\nLista de tarefas está vazia.\n");
-				}
+				gerenciador.mostrarTarefas();
 				break;
 			case 3:
 				System.out.print("\nDigite o ID da tarefa: ");
