@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import util.Tarefa;
+import entities.Tarefa;
+import util.GerenciadorDeTarefas;
 
 public class Program {
 	public static void main(String[] args) {
@@ -14,6 +15,7 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		boolean rodando = true;
 		List<Tarefa> tarefas = new ArrayList<>();
+		GerenciadorDeTarefas gerenciador = new GerenciadorDeTarefas();
 		int id = 1;
 		
 		while (rodando) {
@@ -39,13 +41,7 @@ public class Program {
 			switch (opcao) {
 			case 1:
 				System.out.print("\nDigite o título da tarefa: ");
-				String titulo = sc.nextLine();
-				if (titulo.isBlank()) {
-					System.out.println("\nNão pode adicionar uma tarefa sem título.\n");
-					break;
-				}
-				tarefas.add(new Tarefa(id++, titulo, "pendente"));
-				System.out.println("\nTarefa '" + titulo + "' adicionada com sucesso!\n");
+				gerenciador.addTarefa(sc.nextLine());
 				break;
 			case 2:
 				if (!tarefas.isEmpty()) {
