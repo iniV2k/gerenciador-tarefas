@@ -1,11 +1,8 @@
 package application;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-import entities.Tarefa;
 import util.GerenciadorDeTarefas;
 
 public class Program {
@@ -14,7 +11,6 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		boolean rodando = true;
-		List<Tarefa> tarefas = new ArrayList<>();
 		GerenciadorDeTarefas gerenciador = new GerenciadorDeTarefas();
 		
 		while (rodando) {
@@ -36,7 +32,6 @@ public class Program {
 				break;
 			}
 			
-			int idTarefa;
 			switch (opcao) {
 			case 1:
 				System.out.print("\nDigite o título da tarefa: ");
@@ -51,13 +46,11 @@ public class Program {
 				break;
 			case 4:
 				System.out.print("\nDigite o ID da tarefa: ");
-				idTarefa = sc.nextInt() - 1;
-				String tituloTarefa = tarefas.get(idTarefa).getTitulo();
-				tarefas.removeIf(t -> t.getId() - 1 == idTarefa);
-				System.out.println("\nTarefa '" + tituloTarefa + "' excluída com sucesso!\n");
+				gerenciador.removerTarefa(sc.nextInt() - 1);
 				break;
 			case 5:
 				System.out.println("Gerenciador de tarefas finalizado!");
+				rodando = false;
 				break;
 			default:
 				System.out.println("\nOpção inválida\n");

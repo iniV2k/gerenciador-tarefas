@@ -25,24 +25,27 @@ public class GerenciadorDeTarefas {
 	public void listarTarefas() {
 		System.out.println();
 		if (tarefas.isEmpty()) {
-			System.out.println("Não há nenhuma tarefa listada.");
+			System.out.println("Não há nenhuma tarefa listada.\n");
 			return;
 		} else {
 			tarefas.forEach(System.out::println);
 		}
-		System.out.println("");
+		System.out.println();
 	}
 
-	public void concluirTarefa(int id) {
-		boolean idEncontrado = tarefas.stream().anyMatch(t -> t.getId() - 1 == id);
-		System.out.println();
-		if (idEncontrado) {
-			tarefas.get(id).setStatus("concluída");
-			System.out.println("Tarefa '" + tarefas.get(id).getTitulo() + "' marcada como concluída!");			
-		} else {
-			System.out.println("Não foi encontrada nenhuma tarefa com o ID informado.");
-		}
-		System.out.println();
+	public void concluirTarefa(int indice) {
+		Resultado.completarSolicitacao(indice, tarefas, (i, t) -> {
+			t.get(i).setStatus("concluída");
+			System.out.println("Tarefa '" + t.get(i) + "' marcada como concluída");
+		});
+	}
+	
+	public void removerTarefa(int indice) {
+		Resultado.completarSolicitacao(indice, tarefas, (i, t) -> {
+			String titulo = t.get(i).getTitulo();
+			t.removeIf(tarefa -> tarefa.getId() - 1 == i);
+			System.out.println("Tarefa '" + titulo + "' excluída com sucesso!");
+		});
 	}
 
 }
