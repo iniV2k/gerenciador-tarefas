@@ -39,6 +39,10 @@ public class Program {
 			case 1:
 				System.out.print("\nDigite o título da tarefa: ");
 				String titulo = sc.nextLine();
+				if (titulo.isBlank()) {
+					System.out.println("\nNão pode adicionar uma tarefa sem título.\n");
+					break;
+				}
 				tarefas.add(new Tarefa(id++, titulo, "pendente"));
 				System.out.println("\nTarefa '" + titulo + "' adicionada com sucesso!\n");
 				break;
@@ -52,7 +56,10 @@ public class Program {
 				}
 				break;
 			case 3:
-				//
+				System.out.print("Digite o ID da tarefa: ");
+				int idTarefa = sc.nextInt() - 1;
+				tarefas.get(idTarefa).setStatus("concluída");
+				System.out.println("\nTarefa '" + tarefas.get(idTarefa).getTitulo() + "' marcada como concluída!\n");
 				break;
 			case 4:
 				//
@@ -61,7 +68,7 @@ public class Program {
 				//
 				break;
 			default:
-				System.out.println("Opção inválida");
+				System.out.println("\nOpção inválida\n");
 				break;
 			}
 			
