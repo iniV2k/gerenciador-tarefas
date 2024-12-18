@@ -24,10 +24,16 @@ public class Program {
 			System.out.println("3. Marcar tarefa como concluída");
 			System.out.println("4. Excluir tarefa");
 			System.out.println("5. Sair");
-			System.out.print("Escolha uma opção: ");
+			System.out.print("Escolha uma opção: ");			
 			
-			int opcao = sc.nextInt();
-			sc.nextLine();
+			int opcao;
+			if (sc.hasNextInt()) {
+				opcao = sc.nextInt();
+				sc.nextLine();
+			} else {
+				System.out.println("Entrada inválida, reinicie o programa.");
+				break;
+			}
 			
 			switch (opcao) {
 			case 1:
